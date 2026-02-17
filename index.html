@@ -289,13 +289,14 @@
 
 <section id="filter-module">
   <h2>Filter Module</h2>
-
+<div class="card">
   <p>
     The Water Power system uses a multi-stage modular filtration process.
     Each layer is engineered to target a specific class of contaminants,
     ensuring safety, efficiency, and long-term reliability.
   </p>
-
+</div>
+<div class="card">
   <h3>1. Pre-Filter (Sediment & Biological Barrier)</h3>
   <p>
     This is the system’s first line of defense. It physically blocks large
@@ -303,14 +304,16 @@
     (yes — insects in water are a real problem and yes — EW).
     By stopping these early, the lifespan of the inner filters is significantly extended.
   </p>
-
+</div>
+<div class="card">
   <h3>2. Activated Carbon Layer</h3>
   <p>
     Activated carbon adsorbs chlorine, unpleasant taste and odor compounds,
     volatile organic chemicals, and some industrial pollutants.
     This stage is crucial for making water not just safe, but actually drinkable.
   </p>
-
+</div>
+<div class="card">
   <h3>3. Core Membrane / Reverse Osmosis Layer</h3>
   <p>
     In advanced models, a semi-permeable membrane removes dissolved salts,
@@ -318,20 +321,22 @@
     This layer enables desalination through reverse osmosis in coastal
     or salt-affected regions.
   </p>
-
+</div>
+<div class="card">
   <h3>4. pH Conditioning & Mineral Balancer</h3>
   <p>
     Intensive filtration can leave water slightly acidic.
     This stage stabilizes pH and restores essential minerals,
     ensuring the output water is safe for long-term human consumption.
   </p>
-
+</div>
+<div class="card">
   <h3>5. Antimicrobial Polishing Layer</h3>
   <p>
     The final layer prevents microbial regrowth before the water exits the system,
     maintaining safety even during storage or intermittent use.
   </p>
-
+</div>
   <h3>How Water Flows Through the System</h3>
 
   <div class="flow-diagram">
@@ -396,6 +401,7 @@
     Water Power is designed to serve communities and individuals facing very different water access challenges. Instead of forcing one device to work for every situation, Water Power is offered in multiple configurations — each optimized for its users, environment, and scale of use.
   </div>
 
+
   <div class="card">
     <div class="diagram">
       <div class="diagram-step" onclick="showVariant('community')">Community & Humanitarian</div>
@@ -404,6 +410,71 @@
     </div>
   </div>
 
+  <section class="variant-visuals">
+  <div class="variant-card">
+    <img src="images/home-filter.svg" alt="Household Water Filter">
+    <h3>Home Filter</h3>
+    <p>Designed for daily household drinking and cooking needs.</p>
+  </div>
+    
+<div class="variant-card">
+    <img src="images/school-filter.svg" alt="Refugee Camp Filter">
+    <h3>Refugee Camp Filter</h3>
+    <p>Higher capacity for classrooms, canteens, and large scale use.</p>
+  </div>
+
+  <div class="variant-card">
+    <img src="images/emergency-filter.svg" alt="Emergency Water Filter">
+    <h3>Emergency Filter</h3>
+    <p>Portable and fast-deploy for disasters and remote areas.</p>
+  </div>
+</section>
+
+  
+  <table class="comparison-table">
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Home</th>
+      <th>School</th>
+      <th>Emergency</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Capacity</td>
+      <td>Low–Medium</td>
+      <td>High</td>
+      <td>Medium</td>
+    </tr>
+    <tr>
+      <td>Portability</td>
+      <td>Low</td>
+      <td>Medium</td>
+      <td>High</td>
+    </tr>
+    <tr>
+      <td>Primary Use</td>
+      <td>Daily household</td>
+      <td>Shared public use</td>
+      <td>Disaster response</td>
+    </tr>
+    <tr>
+      <td>Power Requirement</td>
+      <td>Optional</td>
+      <td>Optional</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>Target Users</td>
+      <td>Families</td>
+      <td>Students & staff</td>
+      <td>Relief teams</td>
+    </tr>
+  </tbody>
+</table>
+
+  
   <div id="variant-community" class="card variant">
     <div class="card" style="background:#f0f9ff;">
       <b>Visual Concept</b><br>
@@ -548,6 +619,74 @@ function showVariant(type) {
 
     document.getElementById("flowText").innerText = text[step];
   }
+  .variant-visuals {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.variant-card {
+  background: #f9fbff;
+  border-radius: 18px;
+  padding: 1.8rem;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.variant-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.1);
+}
+
+.variant-card img {
+  max-width: 120px;
+  margin-bottom: 1rem;
+}
+
+.variant-card h3 {
+  font-family: 'Comfortaa', sans-serif;
+  margin-bottom: 0.5rem;
+}
+
+.variant-card p {
+  font-size: 0.9rem;
+  color: #555;
+}
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2.5rem 0;
+  font-family: 'Comfortaa', sans-serif;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 1rem;
+  text-align: center;
+}
+
+.comparison-table thead {
+  background: #1f3c88;
+  color: white;
+}
+
+.comparison-table tbody tr:nth-child(even) {
+  background: #f4f6fb;
+}
+
+.comparison-table tbody tr:hover {
+  background: #e9edfa;
+  transition: background 0.2s ease;
+}
+
+.comparison-table th:first-child,
+.comparison-table td:first-child {
+  text-align: left;
+  font-weight: 600;
+}
+
 </script>
 
 
