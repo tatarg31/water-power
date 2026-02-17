@@ -171,6 +171,42 @@
       outline: 3px solid var(--blue);
       background: #7dd3fc;
     }
+  .flow-diagram {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+      font-weight: 600;
+    }
+
+    .flow-step {
+      background: #e0f2fe;
+      padding: 0.75rem 1rem;
+      border-radius: 999px;
+      animation: pulse 3s infinite;
+    }
+
+    .flow-step.clean {
+      background: #86efac;
+    }
+
+    .flow-arrow {
+      font-size: 1.5rem;
+      animation: flow 1.5s infinite linear;
+    }
+
+    @keyframes flow {
+      0% { opacity: 0.2; }
+      50% { opacity: 1; }
+      100% { opacity: 0.2; }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+      100% { transform: scale(1); }
+    }
   </style>
 </head>
 <body>
@@ -199,8 +235,43 @@
 </nav>
 
 <section id="home" class="active"><h2>What is Water Power?</h2><div class="card">Water Power is a smart, modular water filtration system designed to purify contaminated water while ensuring responsible waste handling.</div></section>
-<section id="how"><h2>How It Works</h2><div class="card">Sensor‑guided modular filtration activates only the stages needed.</div></section>
-<section id="filters"><h2>Filter Modules</h2><div class="card">Multi‑stage filtration removes physical, biological, chemical, and dissolved contaminants.</div></section>
+<section id="how">
+  <h2>How It Works</h2>
+  <div class="card">
+    Water Power uses sensor‑guided modular filtration. Only the necessary stages activate, reducing energy use and extending cartridge life.
+  </div>
+
+  <h3>Water Flow Path</h3>
+  <div class="flow-diagram">
+    <div class="flow-step">Raw Water In</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">Debris & Insect Screen</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">Bio Filter</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">Activated Carbon</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">Reverse Osmosis</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step">pH Stabiliser</div>
+    <div class="flow-arrow">→</div>
+    <div class="flow-step clean">Clean Water Out</div>
+  </div>
+</section>
+<section id="filters">
+  <h2>Filter Modules</h2>
+
+  <div class="card"><b>Pre‑Filter Cartridge</b><br>Captures sediment, insects, and visible debris to protect downstream modules.</div>
+  <div class="card"><b>Biological Filter</b><br>Uses immobilised, non‑pathogenic bacteria to break down organic contaminants.</div>
+  <div class="card"><b>Activated Carbon Cartridge</b><br>Adsorbs chlorine, odours, pesticides, and heavy metals.</div>
+  <div class="card"><b>Reverse Osmosis Membrane</b><br>Removes salts, microplastics, dissolved chemicals, and radionuclides.</div>
+  <div class="card"><b>pH & Mineral Cartridge</b><br>Restores safe pH and adds essential minerals for drinkability.</div>
+
+  <h3>Sealed Waste Cartridge</h3>
+  <div class="card">
+    All concentrated waste is routed into a separate sealed cartridge. The cartridge is ultrasonically welded and resin‑encapsulated, preventing leaks or user exposure. Users never directly handle hazardous materials.
+  </div>
+</section>
 <section id="efficiency"><h2>Efficiency & Energy Design</h2><div class="card">Low‑energy, solar‑compatible, sensor‑optimized operation.</div></section>
 <section id="sustainability"><h2>Sustainability</h2><div class="card">Replaceable cartridges, repairable design, reduced plastic waste.</div></section>
 <section id="you"><h2>Water Power & You</h2><div class="card">Transparency, no hidden claims, informed use.</div></section>
@@ -231,4 +302,5 @@
 
 </body>
 </html>
+
 
