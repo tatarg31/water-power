@@ -34,7 +34,7 @@
       padding: 1rem;
       transform: translateX(-100%);
       transition: transform 0.4s ease;
-      z-index: 20;
+      z-index: 30;
     }
 
     nav.sidebar.open {
@@ -46,6 +46,18 @@
       border: none;
       font-size: 1.6rem;
       cursor: pointer;
+    }
+
+    .fixed-toggle {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 40;
+      background: white;
+      border-radius: 0.75rem;
+      padding: 0.4rem 0.6rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
       margin-bottom: 1rem;
     }
 
@@ -212,6 +224,7 @@
 <body>
 
 <header>
+  <button class="menu-toggle fixed-toggle" onclick="toggleMenu()">☰</button>
   <h1>Water Power</h1>
   <p>Modular filtration. Sustainable lifecycle. Clean water you can trust.</p>
 </header>
@@ -259,28 +272,251 @@
   </div>
 </section>
 <section id="filters">
-  <h2>Filter Modules</h2>
+  <h2>What Contaminants Can It Handle?</h2>
+  <div class="card">
+    Water Power targets a broad range of contaminants commonly found in unsafe water sources. Sensors detect contamination levels and activate the appropriate filtration modules.
+  </div>
+  <div class="card">
+    <ul>
+      <li><b>Biological:</b> Bacteria, protozoa, parasites</li>
+      <li><b>Physical:</b> Sediment, sand, insects, microplastics</li>
+      <li><b>Chemical:</b> Chlorine, pesticides, industrial chemicals</li>
+      <li><b>Heavy Metals:</b> Lead, mercury, arsenic</li>
+      <li><b>Radiological:</b> Dissolved radionuclides (captured and sealed)</li>
+      <li><b>Salinity:</b> Salt and dissolved solids via reverse osmosis</li>
+    </ul>
+  </div>
 
-  <div class="card"><b>Pre‑Filter Cartridge</b><br>Captures sediment, insects, and visible debris to protect downstream modules.</div>
-  <div class="card"><b>Biological Filter</b><br>Uses immobilised, non‑pathogenic bacteria to break down organic contaminants.</div>
-  <div class="card"><b>Activated Carbon Cartridge</b><br>Adsorbs chlorine, odours, pesticides, and heavy metals.</div>
-  <div class="card"><b>Reverse Osmosis Membrane</b><br>Removes salts, microplastics, dissolved chemicals, and radionuclides.</div>
-  <div class="card"><b>pH & Mineral Cartridge</b><br>Restores safe pH and adds essential minerals for drinkability.</div>
+
+<section id="filter-module">
+  <h2>Filter Module</h2>
+
+  <p>
+    The Water Power system uses a multi-stage modular filtration process.
+    Each layer is engineered to target a specific class of contaminants,
+    ensuring safety, efficiency, and long-term reliability.
+  </p>
+
+  <h3>1. Pre-Filter (Sediment & Biological Barrier)</h3>
+  <p>
+    This is the system’s first line of defense. It physically blocks large
+    particles such as sand, rust, soil, organic debris, and insects
+    (yes — insects in water are a real problem and yes — EW).
+    By stopping these early, the lifespan of the inner filters is significantly extended.
+  </p>
+
+  <h3>2. Activated Carbon Layer</h3>
+  <p>
+    Activated carbon adsorbs chlorine, unpleasant taste and odor compounds,
+    volatile organic chemicals, and some industrial pollutants.
+    This stage is crucial for making water not just safe, but actually drinkable.
+  </p>
+
+  <h3>3. Core Membrane / Reverse Osmosis Layer</h3>
+  <p>
+    In advanced models, a semi-permeable membrane removes dissolved salts,
+    heavy metals, microorganisms, and pathogens.
+    This layer enables desalination through reverse osmosis in coastal
+    or salt-affected regions.
+  </p>
+
+  <h3>4. pH Conditioning & Mineral Balancer</h3>
+  <p>
+    Intensive filtration can leave water slightly acidic.
+    This stage stabilizes pH and restores essential minerals,
+    ensuring the output water is safe for long-term human consumption.
+  </p>
+
+  <h3>5. Antimicrobial Polishing Layer</h3>
+  <p>
+    The final layer prevents microbial regrowth before the water exits the system,
+    maintaining safety even during storage or intermittent use.
+  </p>
+
+  <h3>How Water Flows Through the System</h3>
+
+  <div class="flow-diagram">
+    <button onclick="showStep(1)">Dirty Water In</button>
+    <button onclick="showStep(2)">Pre-Filter</button>
+    <button onclick="showStep(3)">Core Filtration</button>
+    <button onclick="showStep(4)">pH Balance</button>
+    <button onclick="showStep(5)">Clean Water Out</button>
+  </div>
+
+  <div class="flow-explanation">
+    <p id="flowText">
+      Click a step to see how the water is treated.
+    </p>
+  </div>
+</section>
+
 
   <h3>Sealed Waste Cartridge</h3>
   <div class="card">
     All concentrated waste is routed into a separate sealed cartridge. The cartridge is ultrasonically welded and resin‑encapsulated, preventing leaks or user exposure. Users never directly handle hazardous materials.
   </div>
 </section>
-<section id="efficiency"><h2>Efficiency & Energy Design</h2><div class="card">Low‑energy, solar‑compatible, sensor‑optimized operation.</div></section>
-<section id="sustainability"><h2>Sustainability</h2><div class="card">Replaceable cartridges, repairable design, reduced plastic waste.</div></section>
-<section id="you"><h2>Water Power & You</h2><div class="card">Transparency, no hidden claims, informed use.</div></section>
-<section id="who"><h2>Who It's For</h2><div class="card">Communities, NGOs, travelers, emergency preparedness.</div></section>
-<section id="lifecycle"><h2>Lifecycle & Waste</h2><div class="card">Sealed cartridges, licensed waste processors, lifecycle responsibility.</div></section>
-<section id="limitations"><h2>Limitations</h2><div class="card">Not a replacement for municipal treatment. Requires maintenance.</div></section>
-<section id="testimonials"><h2>Testimonials</h2><div class="card">"Reliable, transparent, and sustainable."</div></section>
-<section id="qa"><h2>Investor Q&A</h2><div class="card">Scalable, modular, compliant.</div></section>
-<section id="compliance"><h2>Compliance</h2><div class="card">Aligned with WHO and environmental regulations.</div></section>
+<section id="efficiency">
+  <h2>Efficiency & Energy Design</h2>
+  <div class="card">
+    Water Power is engineered to operate efficiently in both everyday and emergency conditions. Instead of running all filtration stages continuously, the system uses onboard sensors to assess water quality in real time and activate only the modules that are necessary.
+  </div>
+  <div class="card">
+    This selective activation significantly reduces energy consumption, prevents unnecessary wear on filter cartridges, and extends the overall lifespan of the system. The device operates on a low-energy core processor and supports rechargeable battery packs.
+  </div>
+  <div class="card">
+    For off-grid use, Water Power is compatible with solar charging systems and manual backup charging. These features make it suitable for rural areas, disaster zones, and emergency preparedness where electricity access may be unreliable.
+  </div>
+</section>
+<section id="sustainability">
+  <h2>Our Commitment to Sustainability</h2>
+  <div class="card">
+    Sustainability is embedded into the design philosophy of Water Power. Rather than disposable, single-use filters, the system relies on modular, replaceable cartridges that allow individual components to be swapped out without discarding the entire unit.
+  </div>
+  <div class="card">
+    The housing is built from durable, long-life materials designed to withstand years of use in harsh environments. This reduces material waste and lowers the long-term environmental footprint of the product.
+  </div>
+  <div class="card">
+    By providing a reliable alternative to bottled water, Water Power also helps reduce dependence on single-use plastics, particularly in regions where bottled water is the primary source of safe drinking water.
+  </div>
+</section>
+<section id="you">
+  <h2>Water Power & You</h2>
+  <div class="card">
+    Water Power is designed with transparency and user empowerment at its core. Users are informed about what the system can treat, what it cannot, and when maintenance or cartridge replacement is required.
+  </div>
+  <div class="card">
+    There are no hidden subscriptions, locked features, or misleading performance claims. Sensor feedback and system indicators are presented clearly, allowing users to make informed decisions about their water safety.
+  </div>
+  <div class="card">
+    This approach builds trust and avoids the risks associated with opaque water treatment technologies, where users may unknowingly consume unsafe water due to lack of information.
+  </div>
+</section>
+<section id="who">
+  <h2>Who It's For</h2>
+  <div class="card">
+    Water Power is designed to serve communities and individuals facing very different water access challenges. Instead of forcing one device to work for every situation, Water Power is offered in multiple configurations — each optimized for its users, environment, and scale of use.
+  </div>
+
+  <div class="card">
+    <div class="diagram">
+      <div class="diagram-step" onclick="showVariant('community')">Community & Humanitarian</div>
+      <div class="diagram-step" onclick="showVariant('portable')">Portable Individual</div>
+      <div class="diagram-step" onclick="showVariant('emergency')">Emergency Preparedness</div>
+    </div>
+  </div>
+
+  <div id="variant-community" class="card variant">
+    <div class="card" style="background:#f0f9ff;">
+      <b>Visual Concept</b><br>
+      Large, floor-standing unit with multiple stacked cartridges, reinforced outer shell, and a side-mounted waste cartridge. Designed to be stationary and shared.
+    </div>
+    <b>Community & Humanitarian Model</b><br><br>
+    Designed for rural villages, refugee camps, disaster response zones, and underserved urban neighborhoods. This model prioritizes reliability and scale.
+    <ul>
+      <li>High daily filtration capacity for large groups</li>
+      <li>Reinforced housing for continuous operation</li>
+      <li>Compatible with authorized remote performance monitoring</li>
+      <li>Distributed through governments, NGOs, and humanitarian partners</li>
+    </ul>
+    This model is larger and less portable, intentionally optimized for shared daily use rather than mobility.
+  </div>
+
+  <div id="variant-portable" class="card variant" style="display:none;">
+    <div class="card" style="background:#f0f9ff;">
+      <b>Visual Concept</b><br>
+      Slim cylindrical filter bottle with internal modular cartridges and a small sealed waste chamber. Backpack-friendly and lightweight.
+    </div>
+    <b>Portable Individual Model</b><br><br>
+    Designed for travelers, hikers, students, and outdoor enthusiasts who need safe water on the move.
+    <ul>
+      <li>Lightweight and backpack-sized</li>
+      <li>User-replaceable filter cartridges</li>
+      <li>No external power required for basic filtration</li>
+      <li>Optimized for personal or small-group use</li>
+    </ul>
+    This model emphasizes independence, portability, and ease of maintenance.
+  </div>
+
+  <div id="variant-emergency" class="card variant" style="display:none;">
+    <div class="card" style="background:#f0f9ff;">
+      <b>Visual Concept</b><br>
+      Compact rectangular unit stored in a hard emergency case, with long-life cartridges and minimal external controls.
+    </div>
+    <b>Emergency Preparedness Model</b><br><br>
+    Designed for emergency kits, disaster preparedness, and crisis response.
+    <ul>
+      <li>Long shelf life with minimal degradation</li>
+      <li>Reliable after long periods of storage</li>
+      <li>Quick deployment with minimal setup</li>
+      <li>Suitable for individuals or small groups during emergencies</li>
+    </ul>
+    This model prioritizes readiness, durability, and reliability under extreme conditions.
+  </div>
+</section>
+<section id="lifecycle">
+  <h2>Lifecycle & Waste Responsibility</h2>
+  <div class="card">
+    Water Power treats filtration waste as a managed industrial by-product, not disposable trash. Contaminants removed from water are concentrated and isolated rather than released back into the environment.
+  </div>
+  <div class="card">
+    All hazardous residues — including heavy metals, chemical contaminants, and radionuclides — are routed into a separate sealed waste cartridge. This cartridge is ultrasonically welded and resin-encapsulated to prevent leaks, tampering, or user exposure.
+  </div>
+  <div class="card">
+    Once a cartridge reaches capacity, it is removed and collected by licensed waste processors. Depending on the contaminant type, materials may undergo regeneration, controlled neutralization, material recovery, or regulated long-term disposal in compliance with environmental and radiological safety standards.
+  </div>
+  <div class="card">
+    This closed-loop approach ensures that improving access to clean water does not shift environmental risk elsewhere.
+  </div>
+</section>
+<section id="limitations">
+  <h2>Limitations</h2>
+  <div class="card">
+    While Water Power significantly improves access to safe drinking water, it is not intended to replace full-scale municipal water treatment infrastructure.
+  </div>
+  <div class="card">
+    The system requires regular maintenance and timely cartridge replacement to maintain performance. Overusing cartridges beyond their rated lifespan may reduce filtration efficiency.
+  </div>
+  <div class="card">
+    Extremely high contamination levels or unknown industrial pollutants may exceed the system’s treatment capacity. In such cases, Water Power provides alerts and recommends alternative solutions.
+  </div>
+</section>
+<section id="testimonials">
+  <h2>Testimonials</h2>
+  <div class="card">
+    “Water Power gave our community reliable access to clean water without relying on bottled supplies. The system is easy to maintain and transparent in how it works.”<br><br><i>— Community Program Coordinator</i>
+  </div>
+  <div class="card">
+    “As a traveler, knowing exactly what my filter removes gives me peace of mind. It’s compact, intuitive, and feels responsibly designed.”<br><br><i>— Outdoor Enthusiast</i>
+  </div>
+</section>
+<section id="qa">
+  <h2>Investor Q&A</h2>
+  <div class="card">
+    <b>Is the system scalable?</b><br>
+    Yes. Water Power is modular by design, allowing capacity to scale from individual use to community-level deployment.
+  </div>
+  <div class="card">
+    <b>How is waste handled responsibly?</b><br>
+    All hazardous waste is isolated in sealed cartridges and managed by licensed waste processors under existing environmental regulations.
+  </div>
+  <div class="card">
+    <b>What differentiates Water Power from existing filters?</b><br>
+    Sensor-guided filtration, sealed waste management, and transparency about system limitations.
+  </div>
+</section>
+<section id="compliance">
+  <h2>Regulation & Compliance</h2>
+  <div class="card">
+    Water Power is designed to align with World Health Organization (WHO) drinking water guidelines and relevant national water safety standards.
+  </div>
+  <div class="card">
+    Waste handling and cartridge transport comply with hazardous material and environmental protection frameworks, including radiological safety regulations where applicable.
+  </div>
+  <div class="card">
+    The system is developed with transparency to support certification, audits, and responsible deployment through government and humanitarian partners.
+  </div>
+</section>
 
 <footer>© Water Power – Sustainable Water Innovation</footer>
 
@@ -298,10 +534,28 @@
     const menu = document.getElementById('menu');
     if (menu.classList.contains('open')) menu.classList.remove('open');
   }
+function showVariant(type) {
+  document.querySelectorAll('.variant').forEach(v => v.style.display = 'none');
+  document.getElementById('variant-' + type).style.display = 'block';
+}
+
+  function showStep(step) {
+    const text = {
+      1: "Untreated water enters the system containing sediments, microbes, salts, and chemical contaminants.",
+      2: "Large particles and biological debris are physically blocked to protect inner filtration layers.",
+      3: "Chemical adsorption and membrane filtration remove toxins, metals, salts, and pathogens.",
+      4: "Mineral media stabilizes acidity and restores a healthy pH level.",
+      5: "Clean, balanced, and safe water exits the system ready for use."
+    };
+
+    document.getElementById("flowText").innerText = text[step];
+  }
 </script>
+
 
 </body>
 </html>
+
 
 
 
