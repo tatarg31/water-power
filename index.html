@@ -242,7 +242,7 @@
     <button onclick="showSection('lifecycle')">Lifecycle & Waste</button>
     <button onclick="showSection('limitations')">Limitations</button>
     <button onclick="showSection('testimonials')">Testimonials</button>
-    <button onclick="showSection('qa')">Investor Q&A</button>
+    <button onclick="showSection('qa')">Q&A</button>
     <button onclick="showSection('compliance')">Compliance</button>
   </div>
 </nav>
@@ -287,7 +287,6 @@
     </ul>
   </div>
 
-  <h2>Filter Modules</h2>
   <h2>Filter Modules</h2>
 
   <div class="card"><b>Pre‑Filter Cartridge</b><br>Captures sediment, insects, and visible debris to protect downstream modules.</div>
@@ -339,44 +338,90 @@
 </section>
 <section id="who">
   <h2>Visual Comparison</h2>
-  <div class="card">
-    <table style="width:100%; border-collapse:collapse; text-align:center;">
-      <thead>
-        <tr style="background:#e0f2fe;">
-          <th style="padding:0.75rem;">Feature</th>
-          <th style="padding:0.75rem;">Community Model</th>
-          <th style="padding:0.75rem;">Portable Model</th>
-          <th style="padding:0.75rem;">Emergency Model</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td style="padding:0.75rem;">Size</td>
-          <td>Large, floor-standing</td>
-          <td>Bottle-sized</td>
-          <td>Compact box</td>
-        </tr>
-        <tr style="background:#f8fafc;">
-          <td style="padding:0.75rem;">Capacity</td>
-          <td>High (shared use)</td>
-          <td>Low–medium (personal)</td>
-          <td>Medium (short-term)</td>
-        </tr>
-        <tr>
-          <td style="padding:0.75rem;">Power</td>
-          <td>Grid / solar supported</td>
-          <td>Manual / passive</td>
-          <td>Battery-based</td>
-        </tr>
-        <tr style="background:#f8fafc;">
-          <td style="padding:0.75rem;">Use Case</td>
-          <td>Villages, NGOs</td>
-          <td>Travel, school, outdoors</td>
-          <td>Disasters & kits</td>
-        </tr>
-      </tbody>
-    </table>
+
+  <!-- TOGGLE BUTTONS -->
+  <div class="variant-toggle">
+    <button class="toggle-btn active" data-target="home">Home</button>
+    <button class="toggle-btn" data-target="school">School</button>
+    <button class="toggle-btn" data-target="emergency">Emergency</button>
   </div>
+
+  <!-- HOME VARIANT -->
+  <div class="variant-content active" id="home">
+    <div class="card">
+      <h3>Home / Community Model</h3>
+      <p>
+        Designed for daily use in households and small communities. 
+        Prioritises long-term filtration, stability, and high shared capacity.
+      </p>
+
+      <!-- TABLE (shared or customised) -->
+      <table style="width:100%; border-collapse:collapse; text-align:center;">
+        <thead>
+          <tr style="background:#e0f2fe;">
+            <th style="padding:0.75rem;">Feature</th>
+            <th style="padding:0.75rem;">Community Model</th>
+            <th style="padding:0.75rem;">Portable Model</th>
+            <th style="padding:0.75rem;">Emergency Model</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding:0.75rem;">Size</td>
+            <td>Large, floor-standing</td>
+            <td>Bottle-sized</td>
+            <td>Compact box</td>
+          </tr>
+          <tr style="background:#f8fafc;">
+            <td style="padding:0.75rem;">Capacity</td>
+            <td>High (shared use)</td>
+            <td>Low–medium (personal)</td>
+            <td>Medium (short-term)</td>
+          </tr>
+          <tr>
+            <td style="padding:0.75rem;">Power</td>
+            <td>Grid / solar supported</td>
+            <td>Manual / passive</td>
+            <td>Battery-based</td>
+          </tr>
+          <tr style="background:#f8fafc;">
+            <td style="padding:0.75rem;">Use Case</td>
+            <td>Villages, NGOs</td>
+            <td>Travel, school, outdoors</td>
+            <td>Disasters & kits</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SCHOOL / PORTABLE VARIANT -->
+  <div class="variant-content" id="school">
+    <div class="card">
+      <h3>School / Portable Model</h3>
+      <p>
+        Lightweight and modular. Built for students, travellers, and outdoor use.
+        Easy to maintain, carry, and replace filters independently.
+      </p>
+
+      <!-- you can reuse the same table OR add images here -->
+    </div>
+  </div>
+
+  <!-- EMERGENCY VARIANT -->
+  <div class="variant-content" id="emergency">
+    <div class="card">
+      <h3>Emergency Model</h3>
+      <p>
+        Optimised for crisis response. Long shelf-life, fast deployment,
+        and reliable purification during disasters and emergencies.
+      </p>
+
+      <!-- add emergency-specific visuals here -->
+    </div>
+  </div>
+</section>
+
 
 
   <h2>Who It's For</h2>
@@ -477,7 +522,7 @@
   </div>
 </section>
 <section id="qa">
-  <h2>Investor Q&A</h2>
+  <h2>Q&A</h2>
   <div class="card">
     <b>Is the system scalable?</b><br>
     Yes. Water Power is modular by design, allowing capacity to scale from individual use to community-level deployment.
@@ -524,8 +569,68 @@ function showVariant(type) {
   document.querySelectorAll('.variant').forEach(v => v.style.display = 'none');
   document.getElementById('variant-' + type).style.display = 'block';
 }
+  .variant-toggle {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 3rem 0;
+}
+
+.toggle-btn {
+  font-family: 'Comfortaa', sans-serif;
+  padding: 0.7rem 1.6rem;
+  border-radius: 999px;
+  border: none;
+  background: #eef2ff;
+  color: #1f3c88;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+  background: #dbe4ff;
+  transform: translateY(-2px);
+}
+
+.toggle-btn.active {
+  background: linear-gradient(135deg, #1f3c88, #4e6ef2);
+  color: white;
+  box-shadow: 0 6px 18px rgba(78, 110, 242, 0.4);
+}
+
+  .variant-content {
+  display: none;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.variant-content.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
 
 </script>
+  <script>
+  const buttons = document.querySelectorAll('.toggle-btn');
+  const sections = document.querySelectorAll('.variant-content');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      // remove active states
+      buttons.forEach(btn => btn.classList.remove('active'));
+      sections.forEach(section => section.classList.remove('active'));
+
+      // activate selected
+      button.classList.add('active');
+      const target = button.dataset.target;
+      document.getElementById(target).classList.add('active');
+    });
+  });
+</script>
+
 
 </body>
 </html>
